@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:labflutter/utilities/routes.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  String name = "";
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    name = "Bilal Arif";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +33,7 @@ class Login extends StatelessWidget {
               height: 20.0,
             ),
             Text(
-              "Login",
+              "Login" + name,
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
