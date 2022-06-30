@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:labflutter/login.dart';
+import 'package:labflutter/pages/login.dart';
+import 'package:labflutter/utilities/routes.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
 
 //Custom widget class
 void main() {
@@ -17,10 +18,10 @@ void main() {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: "/login",
+      initialRoute: MyRoutes.loginRoute,
       routes: {
-        "/": (BuildContext context) => Home(),
-        "/login": (context) => Login(),
+        MyRoutes.homeRoute: (BuildContext context) => Home(),
+        MyRoutes.loginRoute: (context) => Login(),
       },
     ),
   );
