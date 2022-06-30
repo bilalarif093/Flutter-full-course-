@@ -9,7 +9,7 @@ void main() {
   runApp(
     MaterialApp(
       // home: Home(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.lato().fontFamily,
