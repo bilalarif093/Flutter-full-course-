@@ -16,6 +16,8 @@ class MyDrawer extends StatelessWidget {
               accountEmail: Text("bilal.arif@superior.edu.pk"),
               currentAccountPicture: Image(
                 image: AssetImage("images/pic.png"),
+                width: 20.0,
+                height: 20.0,
               ),
             ),
           ),
