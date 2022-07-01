@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:labflutter/widgets/drawer.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: Text("hello World!"),
       ),
+      drawer: MyDrawer(),
     );
   }
 }

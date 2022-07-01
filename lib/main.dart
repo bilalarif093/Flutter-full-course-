@@ -18,11 +18,12 @@ void main() {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: MyRoutes.loginRoute,
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         MyRoutes.homeRoute: (BuildContext context) => Home(),
         MyRoutes.loginRoute: (context) => Login(),
       },
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
