@@ -10,5 +10,6 @@ class Item {
   final products = [
     Item("Codepur001", "Iphone 12 pro", "Apple IPhone 12th generation", 999,
         "#33505a", "images/iphone_12_pro.png"),
+
   ];
 }
