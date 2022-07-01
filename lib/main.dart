@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:labflutter/pages/login.dart';
 import 'package:labflutter/utilities/routes.dart';
+import 'package:labflutter/widgets/theme.dart';
 
 import 'pages/home.dart';
 
@@ -11,13 +11,7 @@ void main() {
     MaterialApp(
       // home: Home(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      theme: Mytheme.LightTheme,
       initialRoute: MyRoutes.homeRoute,
       routes: {
         MyRoutes.homeRoute: (BuildContext context) => Home(),
