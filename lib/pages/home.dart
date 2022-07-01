@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dummyList = List.generate(50, (index) => CatelogList.products[0]);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -23,10 +24,10 @@ class Home extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView.builder(
-            itemCount: CatelogList.products.length,
+            itemCount: dummyList.length,
             itemBuilder: (context, index) {
               return ItemWidget(
-                item: CatelogList.products[index],
+                item: dummyList[index],
               );
             },
           ),
