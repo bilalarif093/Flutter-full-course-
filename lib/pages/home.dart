@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:labflutter/model/catalog.dart';
 import 'package:labflutter/widgets/drawer.dart';
+
+import '../widgets/item_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,9 +20,15 @@ class Home extends StatelessWidget {
         // iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
-        child: Center(
-          child: Text(
-            "hello World!",
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView.builder(
+            itemCount: CatelogList.products.length,
+            itemBuilder: (context, index) {
+              return ItemWidget(
+                item: CatelogList.products[index],
+              );
+            },
           ),
         ),
       ),
