@@ -21,8 +21,8 @@ class _HomeState extends State<Home> {
     loadData();
   }
 
-  loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+  void loadData() async {
+    await Future.delayed(Duration(seconds: 1));
     var catelogJson = await rootBundle.loadString("files/catelog.json");
     var decordedData = jsonDecode(catelogJson);
     var products = decordedData["products"];
@@ -46,14 +46,19 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ListView.builder(
-            itemCount: CatelogList.products.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(
-                item: CatelogList.products[index],
-              );
-            },
-          ),
+          child:
+              (CatelogList.products != null && CatelogList.products.isNotEmpty)
+                  ? ListView.builder(
+                      itemCount: CatelogList.products.length,
+                      itemBuilder: (context, index) {
+                        return ItemWidget(
+                          item: CatelogList.products[index],
+                        );
+                      },
+                    )
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    ),
         ),
       ),
       drawer: MyDrawer(),
