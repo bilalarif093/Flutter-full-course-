@@ -5,8 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:labflutter/model/catalog.dart';
 import 'package:labflutter/widgets/drawer.dart';
 
-import '../widgets/item_widget.dart';
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -22,12 +20,13 @@ class _HomeState extends State<Home> {
   }
 
   void loadData() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 2));
     var catelogJson = await rootBundle.loadString("files/catelog.json");
     var decordedData = jsonDecode(catelogJson);
     var products = decordedData["products"];
     CatelogList.products =
         List.from(products).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 
   @override
@@ -46,19 +45,42 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child:
-              (CatelogList.products != null && CatelogList.products.isNotEmpty)
-                  ? ListView.builder(
-                      itemCount: CatelogList.products.length,
-                      itemBuilder: (context, index) {
-                        return ItemWidget(
-                          item: CatelogList.products[index],
-                        );
-                      },
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    ),
+          child: (CatelogList.products.isNotEmpty)
+              ? GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                  ),
+                  itemBuilder: (context, index) {
+                    final item = CatelogList.products[index];
+                    return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          10.0,
+                        ),
+                      ),
+                      child: GridTile(
+                        child: Image.asset(item.image),
+                        header: Text(item.name),
+                        footer: Text(item.price.toString()),
+                      ),
+                    );
+                  },
+                  itemCount: CatelogList.products.length,
+                )
+              // ? ListView.builder(
+              //     itemCount: CatelogList.products.length,
+              //     itemBuilder: (context, index) {
+              //       return ItemWidget(
+              //         item: CatelogList.products[index],
+              //       );
+              //     },
+              //   )
+              : Center(
+                  child: CircularProgressIndicator(),
+                ),
         ),
       ),
       drawer: MyDrawer(),
