@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:labflutter/model/catalog.dart';
 import 'package:labflutter/widgets/drawer.dart';
 
 import '../widgets/item_widget.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var catelogJson = await rootBundle.loadString("files/catelog.json");
+    print(catelogJson);
+  }
 
   @override
   Widget build(BuildContext context) {

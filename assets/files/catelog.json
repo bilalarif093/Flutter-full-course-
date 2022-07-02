@@ -1,0 +1,28 @@
+{
+  "prodcts":[
+    {
+      "id": 1,
+      "name":"Iphone 12 pro",
+      "desc":"Apple IPhone 12th generation",
+      "price":999,
+      "color":"#33505a",
+      "image":"images/iphone_12_pro.png"
+    },
+    {
+      "id": 2,
+      "name":"Pixel 5",
+      "desc":"Google Pixel phone 5th generation",
+      "price":699,
+      "color":"#00ac51",
+      "image":"images/pixel5.png"
+    },
+    {
+      "id": 3,
+      "name":"Ipad 5",
+      "desc":"Apple Iphone 10th generation",
+      "price":799,
+      "color":"#1c1c1c",
+      "image":"images/ipad.png"
+    }
+  ]
+}
