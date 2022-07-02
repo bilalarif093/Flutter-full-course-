@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:labflutter/model/catalog.dart';
@@ -20,13 +22,16 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
-    var catelogJson = await rootBundle.loadString("assets/files/catelog.json");
-    print(catelogJson);
+    var catelogJson = await rootBundle.loadString("files/catelog.json");
+    var decordedData = jsonDecode(catelogJson);
+    var products = decordedData["products"];
+    CatelogList.products =
+        List.from(products).map<Item>((item) => Item.fromMap(item)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(50, (index) => CatelogList.products[0]);
+    // final dummyList = List.generate(50, (index) => CatelogList.products[0]);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -41,10 +46,10 @@ class _HomeState extends State<Home> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView.builder(
-            itemCount: dummyList.length,
+            itemCount: CatelogList.products.length,
             itemBuilder: (context, index) {
               return ItemWidget(
-                item: dummyList[index],
+                item: CatelogList.products[index],
               );
             },
           ),
