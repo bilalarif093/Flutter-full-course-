@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
-    var catelogJson = await rootBundle.loadString("files/catelog.json");
+    var catelogJson = await rootBundle.loadString("assets/files/catelog.json");
     print(catelogJson);
   }
 
