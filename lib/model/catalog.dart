@@ -1,13 +1,5 @@
 class CatelogList {
-  static List<Item> products = [
-    Item(
-        id: 1,
-        name: "Iphone 12 pro",
-        desc: "Apple IPhone 12th generation",
-        price: 999,
-        color: "#33505a",
-        image: "images/iphone_12_pro.png"),
-  ];
+  static List<Item> products = List.empty();
 }
 
 class Item {

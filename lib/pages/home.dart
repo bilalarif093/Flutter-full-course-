@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     var catelogJson = await rootBundle.loadString("files/catelog.json");
     var decordedData = jsonDecode(catelogJson);
     var products = decordedData["products"];
